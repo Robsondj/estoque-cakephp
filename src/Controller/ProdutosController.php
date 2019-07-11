@@ -34,12 +34,12 @@ class ProdutosController extends AppController
 		$produto = $produtosTable->newEntity($this->request->data());
 
 		if ($produtosTable->save($produto)) {
-			$msg = "Produto salvo com sucesso";
+			$this->Flash->set("Produto salvo com sucesso", ['element' => 'success']);
 		} else {
-			$msg = "Erro ao salvar produto";
+			$this->Flash->set("Erro ao salvar produto", ['element' => 'error']);
 		}
 
-		$this->set('msg',$msg);
+		$this->redirect('produtos/index');
 	}
 
 	public function editar($id)
@@ -60,11 +60,11 @@ class ProdutosController extends AppController
 		$produto = $produtosTable->get($id);
 
 		if ($produtosTable->delete($produto)) {
-			$msg = "Produto removido com sucesso";
+			$this->Flash->set("Produto removido com sucesso", ['element' => 'success']);
 		} else {
-			$msg = "Erro ao deletar produto";
+			$this->Flash->set("Erro ao deletar produto", ['element' => 'error']);
 		}
 
-		$this->redirect('Produtos/index');
+		$this->redirect('produtos/index');
 	}
 }
