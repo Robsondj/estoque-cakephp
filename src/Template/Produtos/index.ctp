@@ -6,6 +6,7 @@
 			<td>Preço</td>
 			<td>Preço com desconto</td>
 			<td>Descrição</td>
+			<td>Ações</td>
 		</tr>
 	</thead>
 	<tbody>
@@ -16,6 +17,7 @@
 			<td><?= $this->Money->format($produto['preco']) ?></td>
 			<td><?= $this->Money->format($produto->calculaDesconto()) ?></td>
 			<td><?= $produto['descricao'] ?></td>
+			<td><?= $this->Html->Link('Editar',['controller' => 'produtos', 'action' => 'editar', $produto['id']]); ?></td>
 		</tr>
 	<?php } ?>
 	</tbody>
