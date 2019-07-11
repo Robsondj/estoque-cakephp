@@ -52,4 +52,19 @@ class ProdutosController extends AppController
 
 		$this->render('novo');
 	}
+
+	public function apagar($id)
+	{
+		$produtosTable = TableRegistry::get('Produtos');
+
+		$produto = $produtosTable->get($id);
+
+		if ($produtosTable->delete($produto)) {
+			$msg = "Produto removido com sucesso";
+		} else {
+			$msg = "Erro ao deletar produto";
+		}
+
+		$this->redirect('Produtos/index');
+	}
 }

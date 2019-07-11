@@ -17,7 +17,7 @@
 			<td><?= $this->Money->format($produto['preco']) ?></td>
 			<td><?= $this->Money->format($produto->calculaDesconto()) ?></td>
 			<td><?= $produto['descricao'] ?></td>
-			<td><?= $this->Html->Link('Editar',['controller' => 'produtos', 'action' => 'editar', $produto['id']]); ?></td>
+			<td><?= $this->Html->Link('Editar',['controller' => 'produtos', 'action' => 'editar', $produto['id']]); ?> | <?= $this->Form->postLink('Apagar',['controller' => 'produtos', 'action' => 'apagar', $produto['id']], ['confirm' => 'Tem certeza que deseja apagar o produto '.$produto['nome'].'?']); ?></td>
 		</tr>
 	<?php } ?>
 	</tbody>
