@@ -2,17 +2,20 @@
 
 namespace App\Controller;
 
+use Cake\ORM\TableRegistry;
+
 /**
 * 
 */
 class ProdutosController extends AppController
 {
 	
-	function index()
+	public function index()
 	{
-		$produtos = [];
-		$produtos[] = ["id" => 1,"nome" => "HD 20 gigas","preco" => 29.99,"descricao" => "HD muito bom da marca mega-HD"];
-		$produtos[] = ["id" => 2,"nome" => "TV","preco" => 89.99,"descricao" => "TV muito boa da marca Sony"];
+		$produtosTable = TableRegistry::get('Produtos');
+
+		$produtos = $produtosTable->find('all');
 		$this->set('produtos', $produtos);
 	}
+
 }
