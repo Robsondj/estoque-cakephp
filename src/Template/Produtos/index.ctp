@@ -24,4 +24,6 @@
 </table>
 <?php
 echo $this->Html->Link('Novo Produto',['controller' => 'produtos','action' => 'novo']);
+echo " | ";
+echo $this->Html->Link('Logout',['controller' => 'users','action' => 'logout']);
 ?>
